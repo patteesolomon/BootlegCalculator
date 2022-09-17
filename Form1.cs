@@ -46,6 +46,7 @@ namespace Calculator
             if ((this.textBox1.Text == "0")||operatorCall == true)
             {
                 textBox1.Clear();
+                operatorCall = false;
             }
             
             if(button.Text == ".")
@@ -66,7 +67,7 @@ namespace Calculator
             if (con1 != 0)
             {
                 enter.PerformClick();
-                demi = button.Text;
+                demi += button.Text;
                 equation.Text = con1 + " " + demi;
             }
             else
@@ -76,7 +77,11 @@ namespace Calculator
                 equation.Text = con1 + " " + demi;
             }
         }
-
+        /// <summary>
+        /// enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button8_Click(object sender, EventArgs e)
         {
             //
