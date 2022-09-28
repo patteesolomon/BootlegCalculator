@@ -14,6 +14,6 @@ namespace Calculator
         public string Mem { get => memory; set => memory = value; }
         public string ShortT1 { get => shortT1; set => shortT1 = value; }
         public string ShortT2 { get => shortT2; set => shortT2 = value; }
-        public int typS { get; internal set; }
+        public int typS { get; set; }
     }
 }

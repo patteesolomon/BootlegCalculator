@@ -36,8 +36,14 @@ namespace Calculator
         {
             //recal time
             if (d.Mem != string.Empty)
-            textBox1.Text = d.Mem;
-            d.ShortT1 = "";
+            {
+                textBox1.Text = d.Mem;
+                d.ShortT1 = "";
+            }
+            else
+            {
+                d.Mem = "0";
+            }
         }
 
         private void Button_Click(object sender, EventArgs e)
@@ -64,7 +70,7 @@ namespace Calculator
         {
             operatorCall = true;
             Button button = (Button)s; // without this im bricked. dont fuck with THIS 
-            if (con1 != 0)
+            if (con1 != 0.0)
             {
                 enter.PerformClick();
                 demi += button.Text;
@@ -94,7 +100,7 @@ namespace Calculator
                         v;
                     break;
                 case "^":
-                    string v1 = ((int)con1 ^ (int)Double.Parse(textBox1.Text)).ToString();
+                    string v1 = (((int)con1) ^ ((int)Double.Parse(textBox1.Text))).ToString();
                     textBox1.Text =
                         v1;
                     break;
@@ -135,7 +141,14 @@ namespace Calculator
                     textBox1.Text =
                         v7;
                     break;
-                    default:
+
+                case "nⁿ":
+                    string v8 = Math.Pow(con1, Double.Parse(textBox1.Text)).ToString();
+                    textBox1.Text = v8;
+                    break;
+
+                default:
+                    textBox1.Text = "0";
                     break;
             }
             con1 = double.Parse(textBox1.Text);
@@ -146,6 +159,8 @@ namespace Calculator
         {
             textBox1.Text = "0";
             con1 = 0;
+            d.typS = 0;
+            d.Mem = "";
             equation.Text = "";
         }
 
